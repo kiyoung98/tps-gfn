@@ -1,0 +1,95 @@
+REMARK   1 CREATED WITH OPENMM 8.1.1, 2024-05-19
+CRYST1   25.580   25.580   25.580  90.00  90.00  90.00 P 1           1 
+HETATM    1  C   ACE A   1      -4.021   1.451   0.449  1.00  0.00           C  
+HETATM    2  O   ACE A   1      -4.963   2.170   0.113  1.00  0.00           O  
+HETATM    3  CH3 ACE A   1      -4.264   0.236   1.313  1.00  0.00           C  
+HETATM    4  H1  ACE A   1      -3.944  -0.653   0.770  1.00  0.00           H  
+HETATM    5  H2  ACE A   1      -3.691   0.330   2.236  1.00  0.00           H  
+HETATM    6  H3  ACE A   1      -5.328   0.154   1.539  1.00  0.00           H  
+ATOM      7  N   HIS A   2      -2.760   1.677   0.093  1.00  0.00           N  
+ATOM      8  H   HIS A   2      -2.054   1.029   0.412  1.00  0.00           H  
+ATOM      9  CA  HIS A   2      -2.308   2.792  -0.752  1.00  0.00           C  
+ATOM     10  HA  HIS A   2      -3.121   3.089  -1.415  1.00  0.00           H  
+ATOM     11  CB  HIS A   2      -1.956   3.992   0.145  1.00  0.00           C  
+ATOM     12  C   HIS A   2      -1.119   2.375  -1.635  1.00  0.00           C  
+ATOM     13  HA1 HIS A   2      -2.839   4.273   0.719  1.00  0.00           H  
+ATOM     14  HA2 HIS A   2      -1.187   3.697   0.860  1.00  0.00           H  
+ATOM     15  SC1 HIS A   2      -1.464   5.212  -0.594  1.00  0.00           C  
+ATOM     16  O   HIS A   2      -0.270   1.581  -1.217  1.00  0.00           O  
+ATOM     17  SN2 HIS A   2      -0.169   5.473  -0.993  1.00  0.00           N  
+ATOM     18  SC3 HIS A   2      -2.237   6.243  -1.054  1.00  0.00           C  
+ATOM     19  SH2 HIS A   2       0.649   4.921  -0.779  1.00  0.00           H  
+ATOM     20  SC4 HIS A   2      -0.160   6.630  -1.677  1.00  0.00           C  
+ATOM     21  SN5 HIS A   2      -1.405   7.139  -1.745  1.00  0.00           N  
+ATOM     22  SH4 HIS A   2      -3.306   6.331  -0.925  1.00  0.00           H  
+ATOM     23  SH3 HIS A   2       0.724   7.086  -2.098  1.00  0.00           H  
+ATOM     24  N   HIS A   3      -1.043   2.924  -2.851  1.00  0.00           N  
+ATOM     25  H   HIS A   3      -1.759   3.585  -3.118  1.00  0.00           H  
+ATOM     26  CA  HIS A   3       0.049   2.708  -3.805  1.00  0.00           C  
+ATOM     27  HA  HIS A   3       0.964   2.484  -3.256  1.00  0.00           H  
+ATOM     28  CB  HIS A   3      -0.298   1.494  -4.687  1.00  0.00           C  
+ATOM     29  C   HIS A   3       0.306   3.973  -4.646  1.00  0.00           C  
+ATOM     30  HB3 HIS A   3      -0.480   0.634  -4.043  1.00  0.00           H  
+ATOM     31  HB2 HIS A   3      -1.214   1.703  -5.238  1.00  0.00           H  
+ATOM     32  SC1 HIS A   3       0.777   1.126  -5.681  1.00  0.00           C  
+ATOM     33  O   HIS A   3      -0.636   4.676  -5.019  1.00  0.00           O  
+ATOM     34  SN2 HIS A   3       0.974   1.689  -6.920  1.00  0.00           N  
+ATOM     35  SC3 HIS A   3       1.786   0.226  -5.483  1.00  0.00           C  
+ATOM     36  SH2 HIS A   3       0.392   2.382  -7.368  1.00  0.00           H  
+ATOM     37  SC4 HIS A   3       2.065   1.133  -7.468  1.00  0.00           C  
+ATOM     38  SN5 HIS A   3       2.600   0.232  -6.625  1.00  0.00           N  
+ATOM     39  SH3 HIS A   3       1.931  -0.377  -4.599  1.00  0.00           H  
+ATOM     40  SH4 HIS A   3       2.464   1.379  -8.441  1.00  0.00           H  
+HETATM   41  N   NME A   4       1.579   4.266  -4.941  1.00  0.00           N  
+HETATM   42  H   NME A   4       2.296   3.638  -4.607  1.00  0.00           H  
+HETATM   43  C   NME A   4       2.006   5.432  -5.715  1.00  0.00           C  
+HETATM   44  H1  NME A   4       1.663   6.347  -5.230  1.00  0.00           H  
+HETATM   45  H2  NME A   4       3.094   5.455  -5.786  1.00  0.00           H  
+HETATM   46  H3  NME A   4       1.581   5.389  -6.717  1.00  0.00           H  
+END
+CONECT    1    2    3    7
+CONECT    2    1
+CONECT    3    4    5    6    1
+CONECT    4    3
+CONECT    5    3
+CONECT    6    3
+CONECT    7    8    9    1
+CONECT    8    7
+CONECT    9    7   10   11   12
+CONECT   10    9
+CONECT   11    9   13   14   15
+CONECT   12    9   16   24
+CONECT   13   11
+CONECT   14   11
+CONECT   15   11   17   18
+CONECT   16   12
+CONECT   17   15   19   20
+CONECT   18   15   21   22
+CONECT   19   17
+CONECT   20   17   21   23
+CONECT   21   18   20
+CONECT   22   18
+CONECT   23   20
+CONECT   24   25   26   12
+CONECT   25   24
+CONECT   26   24   27   28   29
+CONECT   27   26
+CONECT   28   26   30   31   32
+CONECT   29   26   33   41
+CONECT   30   28
+CONECT   31   28
+CONECT   32   28   34   35
+CONECT   33   29
+CONECT   34   32   36   37
+CONECT   35   32   38   39
+CONECT   36   34
+CONECT   37   34   38   40
+CONECT   38   35   37
+CONECT   39   35
+CONECT   40   37
+CONECT   41   42   29   43
+CONECT   42   41
+CONECT   43   44   45   46   41
+CONECT   44   43
+CONECT   45   43
+CONECT   46   43

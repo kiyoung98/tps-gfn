@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0 python src/train.py --molecule chignolin --start_state unfolded --end_state folded --trains_per_rollout 1000 --buffer_size 256 --num_steps 5000 --sigma 0.2

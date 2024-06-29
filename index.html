@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV-free TPS by GFlowNet</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: left;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: left;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2A0944; /* Heading color */
+        }
+        p.intro {
+            font-size: 1.2em;
+            max-width: 1000px;
+            margin-bottom: 30px;
+        }
+        .gif-container {
+            display: flex;
+            justify-content: left;
+            gap: 30px;
+        }
+        .gif-item {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+        .gif-item p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        .gif-item img {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collective Variable-Free Transition Path Sampling with Generative Flow Network</h1>
+    <p class="intro">
+        Understanding transition paths between meta-stable states in molecular systems is fundamental for material design and drug discovery. However, sampling these paths using molecular dynamics simulation is computationally prohibitive due to the high-energy barriers between the meta-stable states. Recent machine learning approaches, although promising, are mostly restricted to simple systems or rely on collective variables (CVs) extracted from expensive domain knowledge. In this work, we propose to leverage generative flow networks~(GFlowNets) for sampling transition paths without relying on CVs. We train a bias potential parameterized by a neural network, based on reformulating the problem as amortized energy-based sampling over molecular trajectories. The training objective is to minimize the squared log ratio between the target distribution and the sampler, derived from the flow matching objective. Our evaluation on four proteins (Alanine Dipeptide, Histidine Dipeptide, Polyproline, and Chignolin) demonstrates the superiority of our work compared to the previous CV-free machine learning approach for discovering realistic and diverse transition paths. 
+    </p>
+    <h2>Animations</h2>
+    <p>
+        Below, we plot the visualization of the start state, transition animation, and the end state for three moelcular systems.
+    </p>
+    <h3>Alanine Dipeptide</h3>
+    <div class="gif-container">
+        <div class="gif-item">
+            <img src="./c5.png" alt="Alanine start state">
+        </div>
+        <div class="gif-item">
+            <img src="./alanine.gif" alt="Alanine transition">
+        </div>
+        <div class="gif-item">
+            <img src="./c7ax.png" alt="Alanine end state">
+        </div>
+    </div>
+    <br>
+    <h3>Polyproline Helix</h3>
+    <div class="gif-container">
+        <div class="gif-item">
+            <img src="./pp2.png" alt="Poly start state">
+        </div>
+        <div class="gif-item">
+            <img src="./poly.gif" alt="Poly transition">
+        </div>
+        <div class="gif-item">
+            <img src="./pp1.png" alt="Poly end state">
+        </div>
+    </div>
+    <br>
+    <h3>Chignolin</h3>
+    <div class="gif-container">
+        <div class="gif-item">
+            <img src="./unfolded.png" alt="Chignolin start state">
+        </div>
+        <div class="gif-item">
+            <img src="./chignolin.gif" alt="Chignolin transition">
+        </div>
+        <div class="gif-item">
+            <img src="./folded.png" alt="Chignolin end state">
+        </div>
+    </div>
+</body>
+</html>

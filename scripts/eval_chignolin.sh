@@ -1,0 +1,3 @@
+CUDA_VISIBLE_DEVICES=0 python src/eval.py --model_path model/chignolin/pot_flex.pt --molecule chignolin --start_state unfolded --end_state folded --num_steps 5000 --sigma 0.2 --num_samples 32
+
+# CUDA_VISIBLE_DEVICES=1 python src/eval.py --model_path model/chignolin/force_flex.pt --molecule chignolin --start_state unfolded --end_state folded --num_steps 5000 --sigma 0.2 --num_samples 32 --force --bias_scale 0.00001
