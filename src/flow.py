@@ -2,7 +2,7 @@ import torch
 import proxy
 from tqdm import tqdm
 import openmm.unit as unit
-from utils.utils import pairwise_dist, kabsch
+from utils.utils import pairwise_dist
 
 class FlowNetAgent:
     def __init__(self, args, md):
@@ -52,14 +52,6 @@ class FlowNetAgent:
         mds.reset()
 
         log_md_reward = -0.5 * torch.square(actions/self.std).mean((1, 2, 3))
-
-        # log_target_reward = torch.zeros(args.num_samples, args.num_steps, device=args.device)
-        # for i in range(args.num_samples):
-        #     aligned_target_position, rmsd = kabsch(mds.target_position, positions[i][1:])
-        #     target_velocity = (aligned_target_position - positions[i][:-1]) / args.timestep
-        #     log_target_reward[i] = -0.5 * torch.square((target_velocity-velocities[i][1:])/self.std).mean((1, 2)) # TODO: Modify velocity
-        # print(log_target_reward)
-        # log_target_reward, last_idx = log_target_reward.max(1)
         
         target_pd = pairwise_dist(mds.target_position)
 
@@ -85,8 +77,12 @@ class FlowNetAgent:
         return log
 
     def train(self, args):
-        log_z_optimizer = torch.optim.Adam([self.policy.log_z], lr=args.log_z_lr)
-        mlp_optimizer = torch.optim.Adam(self.policy.mlp.parameters(), lr=args.mlp_lr)
+        optimizer = torch.optim.Adam(
+            [
+                {"params": [self.policy.log_z], "lr": args.log_z_lr},
+                {"params": self.policy.mlp.parameters(), "lr": args.policy_lr},
+            ]
+        )
 
         positions, actions, log_reward = self.replay.sample()
 
@@ -100,13 +96,11 @@ class FlowNetAgent:
         
         loss.backward()
         
-        torch.nn.utils.clip_grad_norm_(self.policy.log_z, args.max_grad_norm)
-        torch.nn.utils.clip_grad_norm_(self.policy.mlp.parameters(), args.max_grad_norm)
-        
-        mlp_optimizer.step()
-        log_z_optimizer.step()
-        mlp_optimizer.zero_grad()
-        log_z_optimizer.zero_grad()
+        for group in optimizer.param_groups:
+            torch.nn.utils.clip_grad_norm_(group["params"], args.max_grad_norm)
+
+        optimizer.step()
+        optimizer.zero_grad()
         return loss.item()
 
 class ReplayBuffer:

@@ -1,9 +1,11 @@
+import os
 import openmm as mm
 from openmm import app
 import openmm.unit as unit
 
 from .base import BaseDynamics
 
+current_dir = os.getcwd()
 
 class Alanine(BaseDynamics):
     def __init__(self, args, state):
@@ -48,7 +50,8 @@ class Chignolin(BaseDynamics):
         super().__init__(args, state)
 
     def setup(self):
-        forcefield = app.ForceField('amber/protein.ff14SBonlysc.xml', 'implicit/gbn2.xml')
+        path = os.path.join(current_dir, 'openmmforcefields/openmmforcefields/ffxml/amber/protein.ff14SBonlysc.xml')
+        forcefield = app.ForceField(path, 'implicit/gbn2.xml')
         pdb = app.PDBFile(self.start_file)
         system = forcefield.createSystem(
             pdb.topology,
@@ -86,7 +89,8 @@ class Poly(BaseDynamics):
         super().__init__(args, state)
 
     def setup(self):
-        forcefield = app.ForceField('amber/protein.ff14SBonlysc.xml', 'implicit/gbn2.xml')
+        path = os.path.join(current_dir, 'openmmforcefields/openmmforcefields/ffxml/amber/protein.ff14SBonlysc.xml')
+        forcefield = app.ForceField(path, 'implicit/gbn2.xml')
         pdb = app.PDBFile(self.start_file)
         system = forcefield.createSystem(
             pdb.topology,
@@ -124,7 +128,8 @@ class Histidine(BaseDynamics):
         super().__init__(args, state)
 
     def setup(self):
-        forcefield = app.ForceField('amber/protein.ff14SBonlysc.xml', 'implicit/gbn2.xml')
+        path = os.path.join(current_dir, 'openmmforcefields/openmmforcefields/ffxml/amber/protein.ff14SBonlysc.xml')
+        forcefield = app.ForceField(path, 'implicit/gbn2.xml')
         pdb = app.PDBFile(self.start_file)
         system = forcefield.createSystem(
             pdb.topology,

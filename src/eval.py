@@ -29,7 +29,7 @@ parser.add_argument('--force', action='store_true', help='Network predicts force
 # Sampling Config
 parser.add_argument('--start_state', default='c5', type=str)
 parser.add_argument('--end_state', default='c7ax', type=str)
-parser.add_argument('--num_steps', default=500, type=int, help='Length of paths')
+parser.add_argument('--num_steps', default=1000, type=int, help='Length of paths')
 parser.add_argument('--bias_scale', default=0.01, type=float, help='Scale factor of bias')
 parser.add_argument('--timestep', default=1, type=float, help='Timestep of integrator')
 parser.add_argument('--sigma', default=0.05, type=float, help='Control reward of arrival')
